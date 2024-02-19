@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Language Sentiment Extension",
+  "version": "1.0",
+  "description": "A Chrome extension which analyzes the given text and shows the sentiment of it",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "CustomPlugin",
+    "default_width": 480,
+    "default_height": 800
+  },
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "tabs",
+    "system.cpu",
+    "system.memory",
+    "management",
+    "system.display",
+    "fontSettings",
+    "geolocation"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
